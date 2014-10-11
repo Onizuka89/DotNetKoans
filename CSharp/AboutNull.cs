@@ -7,7 +7,8 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void NullIsNotAnObject()
         {
-            Assert.True(typeof(object).IsAssignableFrom(null)); //not everything is an object
+            // Not everything is an object.
+            Assert.True(null is object);
         }
 
         [Koan(2)]
