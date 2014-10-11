@@ -226,22 +226,23 @@ namespace DotNetKoans.KoanRunner
         {
             get
             {
-                return new string[] {
-				"AboutAsserts",
-				"AboutNull",
-				"AboutArrays",
-				"AboutStrings",
-                "AboutClassesAndStructs",
-				"AboutInheritance",
-                "AboutProperties",
-				"AboutMethods",
-				"AboutControlStatements",
-				"AboutContainers",
-				"AboutDelegates",
-				"AboutLambdas",
-                "AboutUsing",
-                "AboutSymbols",
-                "AboutAsynchrony"
+                return new string[]
+                {
+                    "AboutAsserts",
+                    "AboutArrays",
+                    "AboutNull",
+                    "AboutStrings",
+                    "AboutClassesAndStructs",
+                    "AboutInheritance",
+                    "AboutProperties",
+                    "AboutMethods",
+                    "AboutControlStatements",
+                    "AboutContainers",
+                    "AboutDelegates",
+                    "AboutLambdas",
+                    "AboutUsing",
+                    "AboutSymbols",
+                    "AboutAsynchrony"
                 };
             }
         }
