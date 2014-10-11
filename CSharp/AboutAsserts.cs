@@ -21,7 +21,7 @@ namespace DotNetKoans.CSharp
         [Koan(3)]
         public void AssertEquality()
         {
-            // To understand reality, we must compare our expectations against reality
+            // To understand reality, we must compare our expectations against reality.
             var expectedValue = 3;
             var actualValue = 1 + 1;
             Assert.True(expectedValue == actualValue);
@@ -30,7 +30,7 @@ namespace DotNetKoans.CSharp
         [Koan(4)]
         public void ABetterWayOfAssertingEquality()
         {
-            // Some ways of asserting equality are better than others
+            // Some ways of asserting equality are better than others.
             var expectedValue = 3;
             var actualValue = 1 + 1;
             Assert.Equal(expectedValue, actualValue);
@@ -39,7 +39,7 @@ namespace DotNetKoans.CSharp
         [Koan(5)]
         public void FillInValues()
         {
-            // Sometimes we will ask you to fill in the values
+            // Sometimes we will ask you to fill in the values.
             Assert.Equal(FILL_ME_IN, 1 + 1);
         }
     }
