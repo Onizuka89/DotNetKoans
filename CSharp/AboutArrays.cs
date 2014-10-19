@@ -39,7 +39,7 @@ namespace DotNetKoans.CSharp
             int[] array1 = { 42, 50 };
 
             //Are arrays 0-based or 1-based?
-            Assert.Equal(42, array1[((int)FILL_ME_IN)]);
+            Assert.Equal(42, array1[FILL_IN_THE_NUMBER]);
 
             //This is important because...
             Assert.Equal(array1.IsFixedSize, FILL_ME_IN);
@@ -68,8 +68,8 @@ namespace DotNetKoans.CSharp
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
+			Assert.Equal(new string[] { FILL_IN_THE_STRING, FILL_IN_THE_STRING}, array.Take(2).ToArray());
+			Assert.Equal(new string[] { FILL_IN_THE_STRING, FILL_IN_THE_STRING}, array.Skip(1).Take(2).ToArray());
         }
 
         [Koan(6)]
