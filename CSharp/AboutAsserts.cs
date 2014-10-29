@@ -1,4 +1,4 @@
-﻿using Xunit;
+﻿using NUnit.Framework;
 
 namespace DotNetKoans.CSharp
 {
@@ -33,14 +33,23 @@ namespace DotNetKoans.CSharp
             // Some ways of asserting equality are better than others.
             var expectedValue = 3;
             var actualValue = 1 + 1;
-            Assert.Equal(expectedValue, actualValue);
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Koan(4)]
+        public void AFluentWayOfAssertingEquality()
+        {
+            // Some ways making assertions read more like english.
+            var expectedValue = 5;
+            var actualValue = 1 + 1;
+            Assert.That(actualValue, Is.EqualTo(expectedValue));
         }
 
         [Koan(5)]
         public void FillInValues()
         {
             // Sometimes we will ask you to fill in the values.
-            Assert.Equal(FILL_ME_IN, 1 + 1);
+            Assert.That(FILL_ME_IN, Is.EqualTo(1 + 1));
         }
     }
 }
