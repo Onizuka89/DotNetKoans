@@ -1,5 +1,5 @@
-﻿using System;
-using Xunit;
+﻿using NUnit.Framework;
+using System;
 
 namespace DotNetKoans.CSharp
 {
@@ -25,7 +25,7 @@ namespace DotNetKoans.CSharp
 
             // This class only has a get for A, so this would be illegal:
             //obj.A = 5;
-            Assert.Equal(FILL_ME_IN, obj.A);
+            Assert.Equals(FILL_ME_IN, obj.A);
         }
 
         class ClassWithGetSet
@@ -49,7 +49,7 @@ namespace DotNetKoans.CSharp
 
             // This class has a get and set for A, so you can do this:
             obj.A = 5;
-            Assert.Equal(FILL_ME_IN, obj.A);
+            Assert.Equals(FILL_ME_IN, obj.A);
         }
 
         class ClassWithDefaultGetSet
@@ -73,7 +73,7 @@ namespace DotNetKoans.CSharp
             ClassWithDefaultGetSet obj = new ClassWithDefaultGetSet();
 
             obj.A = 5;
-            Assert.Equal(FILL_ME_IN, obj.A);
+            Assert.Equals(FILL_ME_IN, obj.A);
         }
 
         class ClassWithPublicGetAndPrivateSet
@@ -115,8 +115,8 @@ namespace DotNetKoans.CSharp
             // obj.Area = 20;
 
             obj.Side = 5;
-            Assert.Equal(FILL_ME_IN, obj.Side);
-            Assert.Equal(FILL_ME_IN, obj.Area);
+            Assert.Equals(FILL_ME_IN, obj.Side);
+            Assert.Equals(FILL_ME_IN, obj.Area);
         }
 
         class ClassWithIndexer
@@ -147,8 +147,8 @@ namespace DotNetKoans.CSharp
 
             obj[0] = 5;
             obj[1] = 7;
-            Assert.Equal(FILL_ME_IN, obj[0]);
-            Assert.Equal(FILL_ME_IN, obj[1]);
+            Assert.Equals(FILL_ME_IN, obj[0]);
+            Assert.Equals(FILL_ME_IN, obj[1]);
         }
     }
 }

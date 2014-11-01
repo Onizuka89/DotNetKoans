@@ -1,12 +1,14 @@
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using Xunit;
+
+#pragma warning disable 162
+#pragma warning disable 219
 
 namespace DotNetKoans.CSharp
 {
     public class AboutControlStatements : Koan
     {
-#pragma warning disable 162
         [Koan(1)]
         public void IfThenStatementsWithBrackets()
         {
@@ -16,7 +18,7 @@ namespace DotNetKoans.CSharp
                 b = true;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(2)]
@@ -26,7 +28,7 @@ namespace DotNetKoans.CSharp
             if (true)
                 b = true;
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(3)]
@@ -41,8 +43,8 @@ namespace DotNetKoans.CSharp
                 b1 = true;
                 b2 = true;
 
-            Assert.Equal(FILL_ME_IN, b1);
-            Assert.Equal(FILL_ME_IN, b2);
+            Assert.Equals(FILL_ME_IN, b1);
+            Assert.Equals(FILL_ME_IN, b2);
         }
 
         [Koan(4)]
@@ -58,7 +60,7 @@ namespace DotNetKoans.CSharp
                 b = false;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(5)]
@@ -70,18 +72,17 @@ namespace DotNetKoans.CSharp
             else
                 b = false;
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
 
         }
 
         [Koan(6)]
         public void TernaryOperators()
         {
-            Assert.Equal(FILL_ME_IN, (true ? 1 : 0));
-            Assert.Equal(FILL_ME_IN, (false ? 1 : 0));
+            Assert.Equals(FILL_ME_IN, (true ? 1 : 0));
+            Assert.Equals(FILL_ME_IN, (false ? 1 : 0));
         }
 
-#pragma warning disable 219
         //This is out of place for control statements, but necessary for Koan 8
         [Koan(7)]
         public void NullableTypes()
@@ -101,7 +102,7 @@ namespace DotNetKoans.CSharp
 
             int x = nullableInt ?? 42;
 
-            Assert.Equal(FILL_ME_IN, x);
+            Assert.Equals(FILL_ME_IN, x);
         }
 
 #pragma warning disable 184
@@ -123,9 +124,9 @@ namespace DotNetKoans.CSharp
             if (myType is AboutMethods)
                 isAboutMethods = true;
 
-            Assert.Equal(FILL_ME_IN, isKoan);
-            Assert.Equal(FILL_ME_IN, isAboutControlStatements);
-            Assert.Equal(FILL_ME_IN, isAboutMethods);
+            Assert.Equals(FILL_ME_IN, isKoan);
+            Assert.Equals(FILL_ME_IN, isAboutControlStatements);
+            Assert.Equals(FILL_ME_IN, isAboutMethods);
 
         }
 
@@ -139,7 +140,7 @@ namespace DotNetKoans.CSharp
                 result = result + i;
                 i += 1;
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equals(FILL_ME_IN, result);
         }
 
         [Koan(11)]
@@ -153,7 +154,7 @@ namespace DotNetKoans.CSharp
                 result = result + i;
                 i += 1;    
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equals(FILL_ME_IN, result);
         }
 
         [Koan(12)]
@@ -167,7 +168,7 @@ namespace DotNetKoans.CSharp
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equals(FILL_ME_IN, result);
         }
 
         [Koan(13)]
@@ -178,7 +179,7 @@ namespace DotNetKoans.CSharp
             {
                 list[i] = (list[i].ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
+            Assert.Equals(FILL_ME_IN, list);
         }
 
         [Koan(14)]
@@ -190,8 +191,8 @@ namespace DotNetKoans.CSharp
             {
                 finalList.Add(item.ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
-            Assert.Equal(FILL_ME_IN, finalList);
+            Assert.Equals(FILL_ME_IN, list);
+            Assert.Equals(FILL_ME_IN, finalList);
         }
 
         [Koan(15)]
@@ -207,7 +208,7 @@ namespace DotNetKoans.CSharp
             }
             catch (Exception ex)
             {
-                Assert.Equal(typeof(FillMeIn), ex.GetType());
+                Assert.Equals(typeof(FillMeIn), ex.GetType());
             }
         }
 
@@ -236,7 +237,7 @@ namespace DotNetKoans.CSharp
                 whoCaughtTheException = "When we tried to move to the next item in the list";
             }
 
-            Assert.Equal(FILL_ME_IN, whoCaughtTheException);
+            Assert.Equals(FILL_ME_IN, whoCaughtTheException);
         }
 
         [Koan(17)]
@@ -257,7 +258,7 @@ namespace DotNetKoans.CSharp
                     break;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(18)]
@@ -276,7 +277,7 @@ namespace DotNetKoans.CSharp
                     break;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(19)]
@@ -298,7 +299,7 @@ namespace DotNetKoans.CSharp
                     break;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(20)]
@@ -320,7 +321,7 @@ namespace DotNetKoans.CSharp
                     goto case 1;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         [Koan(21)]
@@ -339,7 +340,7 @@ namespace DotNetKoans.CSharp
                     break;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equals(FILL_ME_IN, b);
         }
 
         // The yield keyword makes a function act as an iterator.
@@ -369,7 +370,7 @@ namespace DotNetKoans.CSharp
             {
                 fibonacci.Add(f);
             }
-            Assert.Equal(new List<int>() { }, fibonacci);
+            Assert.Equals(new List<int>() { }, fibonacci);
         }
 
         // yield break allows you to stop the iteration
@@ -398,7 +399,7 @@ namespace DotNetKoans.CSharp
             {
                 fibonacci.Add(f);
             }
-            Assert.Equal(new List<int>() { }, fibonacci);
+            Assert.Equals(new List<int>() { }, fibonacci);
         }
     }
 }

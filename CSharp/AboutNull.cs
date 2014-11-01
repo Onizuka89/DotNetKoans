@@ -1,4 +1,4 @@
-using Xunit;
+using NUnit.Framework;
 
 namespace DotNetKoans.CSharp
 {
@@ -28,7 +28,7 @@ namespace DotNetKoans.CSharp
             }
             catch (System.Exception ex)
             {
-                Assert.Contains(FILL_ME_IN as string, ex.Message);
+                Assert.That(ex.Message, Is.StringContaining(FILL_IN_THE_STRING));
             }
         }
 
@@ -39,12 +39,12 @@ namespace DotNetKoans.CSharp
             Assert.True(obj == FILL_ME_IN);
         }
 
-#pragma warning disable 219
         [Koan(4)]
-        public void ABetterWayToCheckThatAnObjectIsNull()
+        public void BetterWaysToCheckThatAnObjectIsNull()
         {
             object obj = null;
             Assert.Null(FILL_ME_IN);
+            Assert.That(FILL_ME_IN, Is.Null);
         }
 
         [Koan(5)]

@@ -1,7 +1,7 @@
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xunit;
 using System.Text;
 
 namespace DotNetKoans.CSharp
@@ -33,31 +33,31 @@ namespace DotNetKoans.CSharp
 		{
 			MyMath math = new MyMath();
 			BinaryOp op = new BinaryOp(math.Add);
-			Assert.Equal(FILL_ME_IN, op.Method.Name);
+			Assert.Equals(FILL_ME_IN, op.Method.Name);
 		}
 		[Koan(2)]
 		public void DelegatesCanBeAssigned()
 		{
 			MyMath math = new MyMath();
 			BinaryOp op = math.Add;
-			Assert.Equal(FILL_ME_IN, op.Method.Name);
+			Assert.Equals(FILL_ME_IN, op.Method.Name);
 		}
 		[Koan(3)]
 		public void DelegatesCanReferenceStaticMethods()
 		{
 			BinaryOp op = MyMath.Subtract;
-			Assert.Equal(FILL_ME_IN, op.Method.Name);
+			Assert.Equals(FILL_ME_IN, op.Method.Name);
 		}
 		[Koan(4)]
 		public void MethodsCalledViaDelegate()
 		{
 			MyMath math = new MyMath();
 			BinaryOp op = math.Add;
-			Assert.Equal(FILL_ME_IN, op(3,3));
+			Assert.Equals(FILL_ME_IN, op(3,3));
 		}
 		private void PassMeTheDelegate(BinaryOp passed)
 		{
-            Assert.Equal(FILL_ME_IN, passed(3,3));
+            Assert.Equals(FILL_ME_IN, passed(3,3));
         }
 		[Koan(5)]
 		public void DelegatesCanBePassed()
@@ -79,10 +79,10 @@ namespace DotNetKoans.CSharp
 			MyMath m = new MyMath();
 			BinaryOp a = m.Add;
 			BinaryOp original = a;
-			Assert.Same(a, original);
+			Assert.ReferenceEquals(a, original);
 			a = MyMath.Subtract;
 			//a is now a different instance
-			Assert.Same(a, original);
+			Assert.ReferenceEquals(a, original);
 		}
 		delegate int Curry(int val);
 		public class FunctionalTricks
@@ -102,10 +102,10 @@ namespace DotNetKoans.CSharp
 			FunctionalTricks f = new FunctionalTricks();
 			Curry adding = f.Add5;
 			//So far we've only seen one method attached to a delegate. 
-			Assert.Equal(FILL_ME_IN, adding.GetInvocationList().Length);
+			Assert.Equals(FILL_ME_IN, adding.GetInvocationList().Length);
 			//However, you can attach multiple methods to a delegate 
 			adding += f.Add10;
-			Assert.Equal(FILL_ME_IN, adding.GetInvocationList().Length);
+			Assert.Equals(FILL_ME_IN, adding.GetInvocationList().Length);
 		}
 		[Koan(9)]
 		public void OnlyLastResultReturned()
@@ -114,7 +114,7 @@ namespace DotNetKoans.CSharp
 			Curry adding = f.Add5;
 			adding += f.Add10;
 			//Delegates may have more than one method attached, but only the result of the last method is returned.
-			Assert.Equal(FILL_ME_IN, adding(5));
+			Assert.Equals(FILL_ME_IN, adding(5));
 		}
 		[Koan(10)]
 		public void RemovingMethods()
@@ -122,24 +122,24 @@ namespace DotNetKoans.CSharp
 			FunctionalTricks f = new FunctionalTricks();
 			Curry adding = f.Add5;
 			adding += f.Add10;
-			Assert.Equal(2, adding.GetInvocationList().Length);
+			Assert.Equals(2, adding.GetInvocationList().Length);
 			//Remove Add5 from the invocation list using -=
-			Assert.Equal(1, adding.GetInvocationList().Length);
-			Assert.Equal("Add10", adding.Method.Name);
+			Assert.Equals(1, adding.GetInvocationList().Length);
+			Assert.Equals("Add10", adding.Method.Name);
 		}
 
 		private void AssertIntEqualsFourtyTwo(int x)
 		{
-			Assert.Equal(42, x);
+			Assert.Equals(42, x);
 		}
 		private void AssertStringEqualsFourtyTwo(string s)
 		{
-			Assert.Equal("42", s);
+			Assert.Equals("42", s);
 		}
 		private void AssertAddEqualsFourtyTwo(int x, string s)
 		{
 			int y = int.Parse(s);
-			Assert.Equal(42, x + y);
+			Assert.Equals(42, x + y);
 		}
 		[Koan(11)]
 		public void BuiltInActionDelegateTakesInt()
@@ -189,7 +189,7 @@ namespace DotNetKoans.CSharp
 
 			Array.ForEach(greeting.ToCharArray(), s.Look);
 
-			Assert.Equal(FILL_ME_IN, s.Letters);
+			Assert.Equals(FILL_ME_IN, s.Letters);
 		}
 
 		private bool IntEqualsFourtyTwo(int x)
@@ -233,7 +233,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can be used to find an element in an array
 			var countries = new []{ "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.Find(countries, StartsWithS));
+			Assert.Equals(FILL_ME_IN, Array.Find(countries, StartsWithS));
 		}
 
 		private bool IsInSouthAmerica(string country)
@@ -247,7 +247,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can also be used when verifying 
 			var countries = new[] { "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.TrueForAll(countries, IsInSouthAmerica));
+			Assert.Equals(FILL_ME_IN, Array.TrueForAll(countries, IsInSouthAmerica));
 		}
 
 		private string FirstMonth()
@@ -269,7 +269,7 @@ namespace DotNetKoans.CSharp
 			//If you specify more than one parameter, then you are specifying the paramter types as well.
 
 			Func<string> d = FirstMonth;
-			Assert.Equal(FILL_ME_IN, d());
+			Assert.Equals(FILL_ME_IN, d());
 		}
 		[Koan(20)]
 		public void FunctionReturnsInt()
@@ -278,7 +278,7 @@ namespace DotNetKoans.CSharp
 			//The first type parameters define the parameter types and the last one is the return type. So the following matches
 			//a method which takes two int parameters and returns a string.
 			Func<int, int, int> a = Add;
-			Assert.Equal(FILL_ME_IN, a(1, 1));
+			Assert.Equals(FILL_ME_IN, a(1, 1));
 		}
 
 		public class Car
@@ -307,7 +307,7 @@ namespace DotNetKoans.CSharp
 			Comparison<Car> by = SortByModel;
 			Array.Sort(cars, by);
 
-			Assert.Equal(FILL_ME_IN, cars[0].Model);
+			Assert.Equals(FILL_ME_IN, cars[0].Model);
 		}
 
 		private string Stringify(int x)
@@ -325,7 +325,7 @@ namespace DotNetKoans.CSharp
 
 			var result = Array.ConvertAll(numbers, c);
 
-			Assert.Equal(FILL_ME_IN, result);
+			Assert.Equals(FILL_ME_IN, result);
 		}
 	}
 }
