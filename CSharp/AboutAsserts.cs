@@ -36,7 +36,7 @@ namespace DotNetKoans.CSharp
             Assert.AreEqual(expectedValue, actualValue);
         }
 
-        [Koan(4)]
+        [Koan(5)]
         public void AFluentWayOfAssertingEquality()
         {
             // Some ways making assertions read more like english.
@@ -45,7 +45,7 @@ namespace DotNetKoans.CSharp
             Assert.That(actualValue, Is.EqualTo(expectedValue));
         }
 
-        [Koan(5)]
+        [Koan(6)]
         public void FillInValues()
         {
             // Sometimes we will ask you to fill in the values.

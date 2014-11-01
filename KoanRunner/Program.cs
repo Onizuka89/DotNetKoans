@@ -204,7 +204,7 @@ namespace DotNetKoans.KoanRunner
                     // make the message a single line, so that it is completely seen if the Error List pane is selected instead of the Output pane:
                     string message = ie.Message.Replace("\n", " \\ ").Replace("\r", "");
 
-                    Console.WriteLine("The test {0} has damaged your karma.", test);
+                    Console.WriteLine("The test {0} has damaged your karma.", test.Name);
                     // Use this format: "file(linenr): warning: " followed by anything, so it shows up as a warning in the Error List pane.
                     // In both the Error List pane and Output pane clicking it jumps to the line where a fix is needed.
                     // Replacing 'warning' by 'error' would work too, but also give a distracting extra error message.
