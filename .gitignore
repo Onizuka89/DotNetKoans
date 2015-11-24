@@ -4,3 +4,5 @@
 *.userprefs
 progress
 CSharp/test-results
+packages
+CSharp.sln.DotSettings.user

@@ -1,7 +1,5 @@
-using DotNetKoans.CSharp;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 
 namespace DotNetKoans.CSharp
 {
