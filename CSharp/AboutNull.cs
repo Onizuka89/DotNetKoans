@@ -28,7 +28,7 @@ namespace DotNetKoans.CSharp
             }
             catch (System.Exception ex)
             {
-                Assert.That(ex.Message, Is.StringContaining(FILL_IN_THE_STRING));
+                Assert.That(ex.Message, Does.Contain(FILL_IN_THE_STRING));
             }
         }
 
