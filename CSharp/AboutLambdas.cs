@@ -20,7 +20,7 @@ namespace DotNetKoans.CSharp
 														return x.ToString();
 													});
 
-			Assert.Equals(FILL_ME_IN, result);
+			Assert.AreEqual(FILL_ME_IN, result);
 		}
 		[Koan(2)]
 		public void AnonymousMethodsCanAccessOuterVariables()
@@ -29,7 +29,7 @@ namespace DotNetKoans.CSharp
 			//In C# this is called accessing an Outer Variable. In other languages it is called closure. 
 			var numbers = new[] { 4, 5, 6, 7, 8, 9 };
 			int toFind = 7;
-			Assert.Equals(FILL_ME_IN, Array.FindIndex(numbers, delegate(int x)
+			Assert.AreEqual(FILL_ME_IN, Array.FindIndex(numbers, delegate(int x)
 													{
 														return x == toFind;
 													}));
@@ -48,7 +48,7 @@ namespace DotNetKoans.CSharp
 			}
 			var numbers = new[] { 4, 5, 6, 7, 8, 9 };
 			//toFind is not available here, yet criteria still works
-			Assert.Equals(FILL_ME_IN, Array.FindIndex(numbers, criteria));
+			Assert.AreEqual(FILL_ME_IN, Array.FindIndex(numbers, criteria));
 		}
 		[Koan(4)]
 		public void LambdaExpressionsAreShorthand()
@@ -69,7 +69,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString(); 
 													});
-			Assert.Equals(FILL_ME_IN, anonymous);
+			Assert.AreEqual(FILL_ME_IN, anonymous);
 			//The => pair is spoken as "going into". If you were talking about this 
 			//code with a peer, you would say "x going into..."
 		}
@@ -89,7 +89,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString();
 													});
-			Assert.Equals(FILL_ME_IN, anonymous);
+			Assert.AreEqual(FILL_ME_IN, anonymous);
 		}
 		[Koan(6)]
 		public void ParensNotNeededOnSingleParemeterLambdas()
@@ -105,7 +105,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString();
 													});
-			Assert.Equals(FILL_ME_IN, anonymous);
+			Assert.AreEqual(FILL_ME_IN, anonymous);
 		}
 		[Koan(7)]
 		public void BlockNotNeededOnSingleStatementLambdas()
@@ -117,7 +117,7 @@ namespace DotNetKoans.CSharp
 			});
 			var lambda = Array.ConvertAll(numbers, x => x.ToString());
 			//When you have only one statement, the curly brackets are not needed. What other two things are also missing?
-			Assert.Equals(FILL_ME_IN, anonymous);
+			Assert.AreEqual(FILL_ME_IN, anonymous);
 		}
 	}
 }

@@ -37,7 +37,7 @@ namespace DotNetKoans.CSharp
             // method returns, we call this:
             int a = await task;
 
-            Assert.Equals(FILL_ME_IN, a);
+            Assert.AreEqual(FILL_ME_IN, a);
 
             // ReturnOneAsync is an overly simplistic method, it actually doesn't make use of
             // asynchrony, because all the code can be executed directly, but we'll see better examples.
@@ -57,7 +57,7 @@ namespace DotNetKoans.CSharp
 
             int a = await task;
 
-            Assert.Equals(FILL_ME_IN, a);
+            Assert.AreEqual(FILL_ME_IN, a);
         }
 
         async Task StoreOrder(List<int> order)
@@ -93,7 +93,7 @@ namespace DotNetKoans.CSharp
             // Note that occasionally the order is different from what you expect,
             // due to mysterious reasons, so don't be surprised if this usually
             // passes but sometimes not.
-            Assert.Equals(new List<int>() { 0,0,0,0,0 }, order);
+            Assert.AreEqual(new List<int>() { 0,0,0,0,0 }, order);
         }
 
         async Task<String> ReadFile()
@@ -118,7 +118,7 @@ namespace DotNetKoans.CSharp
 
             String src = await task;
 
-            Assert.Equals(FILL_ME_IN, src.Substring(0, 5));
+            Assert.AreEqual(FILL_ME_IN, src.Substring(0, 5));
         }
 
         async Task<int> ThrowAsync()
@@ -147,7 +147,7 @@ namespace DotNetKoans.CSharp
                 hasThrown = true;
             }
 
-            Assert.Equals(FILL_ME_IN, hasThrown);
+            Assert.AreEqual(FILL_ME_IN, hasThrown);
         }
 
         int a;
@@ -171,7 +171,7 @@ namespace DotNetKoans.CSharp
 
             await t;
 
-            Assert.Equals(FILL_ME_IN, a);
+            Assert.AreEqual(FILL_ME_IN, a);
         }
 
         async void SetAWithoutATask()
@@ -196,7 +196,7 @@ namespace DotNetKoans.CSharp
             // To be sure that it comppletes, we wait a short time.
             Thread.Sleep(10);
 
-            Assert.Equals(FILL_ME_IN, a);
+            Assert.AreEqual(FILL_ME_IN, a);
         }
 
         Thread theThread;
@@ -218,7 +218,7 @@ namespace DotNetKoans.CSharp
 
             int a = await task;
 
-            Assert.Equals(theThread==Thread.CurrentThread, FILL_ME_IN);
+            Assert.AreEqual(theThread==Thread.CurrentThread, FILL_ME_IN);
         }
 
         async Task<Thread> ReturnCurrentThreadAsync()
@@ -249,7 +249,7 @@ namespace DotNetKoans.CSharp
             // Only Microsoft knows exactly why.
             // Using three makes it less likely that they will all three be on the same thread,
             // but don't be surprised if it occasionally does.
-            Assert.Equals(thread1 == Thread.CurrentThread && thread2 == Thread.CurrentThread && thread3 == Thread.CurrentThread, FILL_ME_IN);
+            Assert.AreEqual(thread1 == Thread.CurrentThread && thread2 == Thread.CurrentThread && thread3 == Thread.CurrentThread, FILL_ME_IN);
         }
 
         [Koan(10)]
@@ -269,9 +269,9 @@ namespace DotNetKoans.CSharp
             // method returns, we call this:
             int[] sums = await Task.WhenAll(tasks);
 
-            Assert.Equals(FILL_ME_IN, sums[0]);
-            Assert.Equals(FILL_ME_IN, sums[1]);
-            Assert.Equals(FILL_ME_IN, sums[2]);
+            Assert.AreEqual(FILL_ME_IN, sums[0]);
+            Assert.AreEqual(FILL_ME_IN, sums[1]);
+            Assert.AreEqual(FILL_ME_IN, sums[2]);
         }
 
         [Koan(11)]
@@ -300,7 +300,7 @@ namespace DotNetKoans.CSharp
                 sumOfSums += await task;
             }
 
-            Assert.Equals(FILL_ME_IN, sumOfSums);
+            Assert.AreEqual(FILL_ME_IN, sumOfSums);
         }
 
         async Task<int> ReturnOne(CancellationToken ct)
@@ -336,7 +336,7 @@ namespace DotNetKoans.CSharp
             }
             // Note that occasionally it is not canceled, so don't be surprised if this usually
             // passes but sometimes not.
-            Assert.Equals(FILL_ME_IN, isCancelled);
+            Assert.AreEqual(FILL_ME_IN, isCancelled);
         }
 
         [Koan(13)]
@@ -358,7 +358,7 @@ namespace DotNetKoans.CSharp
             {
                 isCancelled = true;
             }
-            Assert.Equals(FILL_ME_IN, isCancelled);
+            Assert.AreEqual(FILL_ME_IN, isCancelled);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DotNetKoans.CSharp
 #if MACRO_1
             b = true;
 #endif
-            Assert.Equals(b, FILL_ME_IN);
+            Assert.AreEqual(b, FILL_ME_IN);
         }
 
         [Koan(2)]
@@ -28,7 +28,7 @@ namespace DotNetKoans.CSharp
 #if MACRO_2
             b = true;
 #endif
-            Assert.Equals(b, FILL_ME_IN);
+            Assert.AreEqual(b, FILL_ME_IN);
         }
 
         [Koan(3)]
@@ -40,7 +40,7 @@ namespace DotNetKoans.CSharp
 #else
             a = 2;
 #endif
-            Assert.Equals(a, FILL_ME_IN);
+            Assert.AreEqual(a, FILL_ME_IN);
         }
 
         [Koan(4)]
@@ -52,7 +52,7 @@ namespace DotNetKoans.CSharp
 #elif MACRO_1
             a = 2;
 #endif
-            Assert.Equals(a, FILL_ME_IN);
+            Assert.AreEqual(a, FILL_ME_IN);
         }
 
         [Koan(5)]
@@ -62,7 +62,7 @@ namespace DotNetKoans.CSharp
 #if MACRO_3
             b = true;
 #endif
-            Assert.Equals(b, FILL_ME_IN);
+            Assert.AreEqual(b, FILL_ME_IN);
         }
 
         [Koan(6)]
@@ -75,7 +75,7 @@ namespace DotNetKoans.CSharp
 #if MACRO_4
             b = true;
 #endif
-            Assert.Equals(b, true);
+            Assert.AreEqual(b, true);
         }
 
         [Koan(7)]
@@ -89,7 +89,7 @@ namespace DotNetKoans.CSharp
 #if DEBUG
             b = true;
 #endif
-            Assert.Equals(b, FILL_ME_IN);
+            Assert.AreEqual(b, FILL_ME_IN);
         }
 
         static bool m_b = false;
@@ -114,11 +114,11 @@ namespace DotNetKoans.CSharp
             // Such function have to have a void return type.
             m_b = false;
             foo();
-            Assert.Equals(m_b, FILL_ME_IN);
+            Assert.AreEqual(m_b, FILL_ME_IN);
 
             m_b = false;
             bar();
-            Assert.Equals(m_b, FILL_ME_IN);
+            Assert.AreEqual(m_b, FILL_ME_IN);
         }
 
         [Conditional("MACRO_1"), Conditional("MACRO_2")]
@@ -134,7 +134,7 @@ namespace DotNetKoans.CSharp
             // if at least one of the symbols is defined.
             m_b = false;
             baz();
-            Assert.Equals(m_b, FILL_ME_IN);
+            Assert.AreEqual(m_b, FILL_ME_IN);
         }
     }
 }

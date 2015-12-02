@@ -46,20 +46,20 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void CallingStaticMethodsWithoutAnInstance()
         {
-            Assert.Equals(FILL_ME_IN, InnerSecret.Key());
+            Assert.AreEqual(FILL_ME_IN, InnerSecret.Key());
         }
 
         //In fact, you can't call it on an instance variable
         //of the object. So this wouldn't compile:
         //InnerSecret secret = new InnerSecret();
-        //Assert.Equals(FILL_ME_IN, secret.Key());
+        //Assert.AreEqual(FILL_ME_IN, secret.Key());
 
 
         [Koan(2)]
         public void CallingPublicMethodsOnAnInstance()
         {
             InnerSecret secret = new InnerSecret();
-            Assert.Equals(FILL_ME_IN, secret.Secret());
+            Assert.AreEqual(FILL_ME_IN, secret.Secret());
         }
 
         //Protected methods can only be called by a subclass
@@ -70,7 +70,7 @@ namespace DotNetKoans.CSharp
         public void CallingProtectedMethodsOnAnInstance()
         {
             StateSecret secret = new StateSecret();
-            Assert.Equals(FILL_ME_IN, secret.InformationLeak());
+            Assert.AreEqual(FILL_ME_IN, secret.InformationLeak());
         }
 
         //But, we can't call the private methods of InnerSecret
@@ -87,7 +87,7 @@ namespace DotNetKoans.CSharp
             string superSecretMessage = secret.GetType()
                 .GetMethod("SooperSeekrit", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 .Invoke(secret, null) as string;
-            Assert.Equals(FILL_ME_IN, superSecretMessage);
+            Assert.AreEqual(FILL_ME_IN, superSecretMessage);
         }
 
         //Up till now we've had explicit return types. It's also
@@ -103,9 +103,9 @@ namespace DotNetKoans.CSharp
         [Koan(5)]
         public void CallingGenericMethods()
         {
-            Assert.Equals(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
+            Assert.AreEqual(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
 
-            Assert.Equals(FILL_ME_IN, GiveMeBack<string>("Hi!"));
+            Assert.AreEqual(FILL_ME_IN, GiveMeBack<string>("Hi!"));
         }
 
         private int Overload(int n)
@@ -139,9 +139,9 @@ namespace DotNetKoans.CSharp
             // same name and arguments that only have a different return type.
             // When you call a method with that name, the compiler chooses the one with
             // the matching arguments that you supply.
-            Assert.Equals(FILL_ME_IN, Overload(1));
-            Assert.Equals(FILL_ME_IN, Overload("abc"));
-            Assert.Equals(FILL_ME_IN, Overload(1, "abc"));
+            Assert.AreEqual(FILL_ME_IN, Overload(1));
+            Assert.AreEqual(FILL_ME_IN, Overload("abc"));
+            Assert.AreEqual(FILL_ME_IN, Overload(1, "abc"));
         }
 
         private double CalculateBMI(double weight, double height)
@@ -156,8 +156,8 @@ namespace DotNetKoans.CSharp
             // before the argument.
             // This is a safe practice for methods of which you might be confused about the order of
             // the arguments.
-            Assert.Equals(FILL_ME_IN, CalculateBMI(weight: 100, height: 2.0));
-            Assert.Equals(FILL_ME_IN, CalculateBMI(height: 2.0, weight: 100));
+            Assert.AreEqual(FILL_ME_IN, CalculateBMI(weight: 100, height: 2.0));
+            Assert.AreEqual(FILL_ME_IN, CalculateBMI(height: 2.0, weight: 100));
         }
 
         private int MethodWithOptionalArguments(int a, int b = 1, int c = 2)
@@ -170,15 +170,15 @@ namespace DotNetKoans.CSharp
         {
             // Methods can have optional arguments, if they have an = and a default value after the argument.
             // If you don't pass that argument, the default value is used; otherwise the value you pass is used.
-            Assert.Equals(FILL_ME_IN, MethodWithOptionalArguments(1,2,3));
-            Assert.Equals(FILL_ME_IN, MethodWithOptionalArguments(1,2));
-            Assert.Equals(FILL_ME_IN, MethodWithOptionalArguments(1));
+            Assert.AreEqual(FILL_ME_IN, MethodWithOptionalArguments(1,2,3));
+            Assert.AreEqual(FILL_ME_IN, MethodWithOptionalArguments(1,2));
+            Assert.AreEqual(FILL_ME_IN, MethodWithOptionalArguments(1));
 
             // You cannot omit an optional argument if there are optional arguments after it...
-            // Assert.Equals(FILL_ME_IN, MethodWithOptionalArguments(1, , 3));
+            // Assert.AreEqual(FILL_ME_IN, MethodWithOptionalArguments(1, , 3));
 
             // ... unless you make it a named argument:
-            Assert.Equals(FILL_ME_IN, MethodWithOptionalArguments(1, c: 3));
+            Assert.AreEqual(FILL_ME_IN, MethodWithOptionalArguments(1, c: 3));
         }
 
         class Example1
@@ -203,20 +203,20 @@ namespace DotNetKoans.CSharp
             Example1 obj2 = obj1;
 
             // obj1 and obj2 are references that point to the same object in memory
-            Assert.Equals(FILL_ME_IN, obj1 == obj2);
+            Assert.AreEqual(FILL_ME_IN, obj1 == obj2);
 
             // If an object is passed to a method but not by reference, the address of the object is passed,
             // so the address that is stored in obj1 cannot be changed by the method.
             // (the same as in Java, or as passing a pointer in C/C++)
             PassClassNotByRef(obj1);
-            Assert.Equals(FILL_ME_IN, obj1 == obj2);
+            Assert.AreEqual(FILL_ME_IN, obj1 == obj2);
 
             // However, if an object is passed by reference, the address of the variable is passed to the method,
             // so it can change to memory location obj1 is pointing.
             // Note that you need to add the keyword ref in front of the argument in both the method and the call.
             // (the same as a pointer to a pointer in C/C++)
             PassClassByRef(ref obj1);
-            Assert.Equals(FILL_ME_IN, obj1 == obj2);
+            Assert.AreEqual(FILL_ME_IN, obj1 == obj2);
         }
 
         void OutClass(out Example1 obj)
@@ -237,7 +237,7 @@ namespace DotNetKoans.CSharp
             Example1 obj2 = obj1;
 
             // obj1 and obj2 are references that point to the same object in memory
-            Assert.Equals(FILL_ME_IN, obj1 == obj2);
+            Assert.AreEqual(FILL_ME_IN, obj1 == obj2);
 
             // If an object is passed to a method with the out keyword, the address of the variable is passed,
             // so the address that is stored in obj1 can be changed by the method.
@@ -247,7 +247,7 @@ namespace DotNetKoans.CSharp
             // Note that you need to add the out keyword in the call as well, this makes it clearer at the
             // call site what the intention of the method is.
             OutClass(out obj1);
-            Assert.Equals(FILL_ME_IN, obj1 == obj2);
+            Assert.AreEqual(FILL_ME_IN, obj1 == obj2);
         }
 
         struct Example2
@@ -277,14 +277,14 @@ namespace DotNetKoans.CSharp
             // (the same as an int in Java, or as passing by value in C/C++),
             // so changes in the method are not seen in the original object.
             PassStructNotByRef(obj);
-            Assert.Equals(FILL_ME_IN, obj.a);
+            Assert.AreEqual(FILL_ME_IN, obj.a);
 
             // However, if a struct object is passed by reference, the address of the variable is passed to the method,
             // so it can makes changes in the memory location of obj.
             // Note that you need to add the keyword ref in front of the argument in both the method and the call.
             // (the same as a pointer in C/C++)
             PassStructByRef(ref obj);
-            Assert.Equals(FILL_ME_IN, obj.a);
+            Assert.AreEqual(FILL_ME_IN, obj.a);
         }
 
         void PassStructWithTheOutKeyword(out Example2 obj)
@@ -312,8 +312,8 @@ namespace DotNetKoans.CSharp
             // Note that you need to add the out keyword in the call as well, this makes it clearer at the
             // call site what the intention of the method is.
             PassStructWithTheOutKeyword(out obj);
-            Assert.Equals(FILL_ME_IN, obj.a);
-            Assert.Equals(FILL_ME_IN, obj.b);
+            Assert.AreEqual(FILL_ME_IN, obj.a);
+            Assert.AreEqual(FILL_ME_IN, obj.b);
         }
 
         private string[] LocalMethodWithVariableParameters(params string[] names)
@@ -327,7 +327,7 @@ namespace DotNetKoans.CSharp
             // If the last argument of a method is an array preceded by the keyword params,
             // you can pass an arbitrary number of arguments for that argument, which will
             // be accessible as an array in the method.
-            Assert.Equals(FILL_ME_IN, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            Assert.AreEqual(FILL_ME_IN, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //Extension Methods allow us to "add" methods to any class
@@ -341,19 +341,19 @@ namespace DotNetKoans.CSharp
         public void ExtensionMethodsShowUpInTheCurrentClass()
         {
             // Note that you have to add 'this.' in front of the call for extension methods.
-            Assert.Equals(FILL_ME_IN, this.HelloWorld());
+            Assert.AreEqual(FILL_ME_IN, this.HelloWorld());
         }
 
         [Koan(15)]
         public void ExtensionMethodsWithParameters()
         {
-            Assert.Equals(FILL_ME_IN, this.SayHello("Cory"));
+            Assert.AreEqual(FILL_ME_IN, this.SayHello("Cory"));
         }
 
         [Koan(16)]
         public void ExtensionMethodsWithVariableParameters()
         {
-            Assert.Equals(FILL_ME_IN, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
+            Assert.AreEqual(FILL_ME_IN, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
         }
 
         //Extension methods can extend any class my referencing 
@@ -363,7 +363,7 @@ namespace DotNetKoans.CSharp
         [Koan(17)]
         public void ExtendingCoreClasses()
         {
-            Assert.Equals(FILL_ME_IN, "Cory".SayHi());
+            Assert.AreEqual(FILL_ME_IN, "Cory".SayHi());
         }
     }
 }
