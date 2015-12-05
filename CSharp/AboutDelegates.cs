@@ -9,7 +9,7 @@ namespace DotNetKoans.CSharp
 	{
 		//A delegate is a user defined type just like a class. 
 		//A delegate lets you reference methods with the same signature and return type.
-		//Once you have the reference to the method, pass them as paramters or call it via the delegate.
+		//Once you have the reference to the method, pass them as parameters or call it via the delegate.
 		//In other languages this is known as functions as first class citizens.
 
 		//Here is a delegate declaration
