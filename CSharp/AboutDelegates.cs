@@ -78,10 +78,10 @@ namespace DotNetKoans.CSharp
 			MyMath m = new MyMath();
 			BinaryOp a = m.Add;
 			BinaryOp original = a;
-			Assert.ReferenceEquals(a, original);
+            Assert.AreSame(a, original);
 			a = MyMath.Subtract;
 			//a is now a different instance
-			Assert.ReferenceEquals(a, original);
+			Assert.AreSame(a, original);
 		}
 		delegate int Curry(int val);
 		public class FunctionalTricks

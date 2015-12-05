@@ -193,7 +193,7 @@ namespace DotNetKoans.CSharp
 
             // Here we could do other things.
 
-            // To be sure that it comppletes, we wait a short time.
+            // To be sure that it completes, we wait a short time.
             Thread.Sleep(10);
 
             Assert.AreEqual(FILL_ME_IN, a);
